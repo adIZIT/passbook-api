@@ -61,4 +61,17 @@ router.route('/devices/:id').put(function(req, res) {
 	});
 });
 
+// DELETE: /device/:id
+// Deletes a device
+router.route('/devices/:id').delete(function(req, res) {
+	Device.remove({
+		_id: req.params.id
+	}, function(err, device) {
+		if (err) {
+			return res.send(err);
+		}
+		res.json({ message: 'Device deleted' });
+	});
+});
+
 module.exports = router;
