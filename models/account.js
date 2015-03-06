@@ -3,7 +3,10 @@ var mongoose = require('mongoose');
 
 // Define the account schema
 var AccountSchema = new mongoose.Schema({
-	_customer: { type: Number, ref: 'Customer' },
+	_customer: { 
+		type: Number, 
+		ref: 'Customer' 
+	},
 	account_name: { 
 		type: String,
 		required: true
@@ -18,6 +21,10 @@ var AccountSchema = new mongoose.Schema({
 	date_created: { 
 		type: Date, 
 		default: Date.now 
+	},
+	created_by: { 
+		type: Number, 
+		ref: 'User' 
 	}
 });
 
