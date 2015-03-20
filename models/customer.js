@@ -1,7 +1,7 @@
 // Load the required packages
 var mongoose = require('mongoose');
-require('./account.js')
-require('./device.js')
+require('./account.js');
+require('./device.js');
 
 // Define the customer schema
 var customerSchema = new mongoose.Schema({
