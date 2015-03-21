@@ -8,32 +8,8 @@ router.route('/customers').get(function(req, res) {
 	
 	console.log('GET /customers/');
 	console.log(req.query);	
-	
-	
-	// Kijken of er een filter aanwezig is in de request
-	console.log('Filter: ' + req.query.filter);
-	
-	var filters = req.query.filter.split(';');
-	for (var f in filters) {
-		console.log('Filter: ' + f);
-	}
-	
-	console.log('ip address: ' + req.ip);
-	console.log('hostname: ' + req.hostname);
-	console.log('baseUrl: ' + req.baseUrl);
-	console.log('originalUrl: ' + req.originalUrl);
-	console.log('path: ' + req.path);
-	console.log('protocol: ' + req.protocol);
-	console.log('query: ' + req.query);
-	console.log('route:' + req.route);
-	
-	// var filter = {};
-	// for (var f in req.query.filter) {
-		// filter[f] = req.query.filter[f];
-		// console.log('Filter: ' + f);
-	// }
 
-	Customer.find(function(err, customers) {
+	Customer.find(req.query, function(err, customers) {
 		if (err) {
 			return res.send(err);
 		}
